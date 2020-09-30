@@ -15,11 +15,17 @@ WORKDIR ${HOME}
 
 COPY Gemfile* ./
 
-RUN apk update && \
-    apk upgrade && \
-    apk add --no-cache ${RUNTIME_PACKAGES} && \
-    apk add --virtual build-dependencies --no-cache ${DEV_PACKAGES} && \
-    bundle install -j4 && \
-    apk del build-dependencies
+# RUN apk update && \
+#     apk upgrade && \
+#     apk add --no-cache ${RUNTIME_PACKAGES} && \
+#     apk add --virtual build-dependencies --no-cache ${DEV_PACKAGES} && \
+#     bundle install -j4 && \
+#     apk del build-dependencies
+
+RUN apk update && apk upgrade
+RUN apk add --no-cache ${RUNTIME_PACKAGES} 
+RUN apk add --virtual build-dependencies --no-cache ${DEV_PACKAGES} 
+RUN bundle install -j4 
+RUN apk del build-dependencies
 
 COPY . .
