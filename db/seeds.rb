@@ -1,6 +1,6 @@
 
 table_names = %w(
-    users quizzes
+    users quizzes tags
 )
 
 table_names.each do |table_name|

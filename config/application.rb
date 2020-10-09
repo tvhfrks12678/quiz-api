@@ -40,17 +40,17 @@ module App
     # config.api_only = true
     config.api_only = false
 
-    config.middleware.insert_before 0, Rack::Cors do
-      allow do
-        # 許可するドメイン
-        # origins "localhost:3000"
-        origins ENV["API_DOMAIN"] || ""
-        # 許可するヘッダとメソッドの種類
-        resource "*",
-                 headers: :any,
-                 methods: [:get, :post, :patch, :delete, :head, :options]
-      end
-    end
+    # config.middleware.insert_before 0, Rack::Cors do
+    #   allow do
+    #     # 許可するドメイン
+    #     # origins "localhost:3000"
+    #     origins ENV["API_DOMAIN"] || ""
+    #     # 許可するヘッダとメソッドの種類
+    #     resource "*",
+    #              headers: :any,
+    #              methods: [:get, :post, :patch, :delete, :head, :options]
+    #   end
+    # end
 
 
 
